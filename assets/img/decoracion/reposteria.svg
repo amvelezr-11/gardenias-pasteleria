@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380" height="320" viewBox="0 0 380 320"><g fill="none" stroke="#c7a58b" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" opacity=".75">
+<!-- cupcake --> <path d="M44 97h62l-8 46H52zM44 97c-6-8-3-18 7-22-1-15 14-26 26-18 11-12 28 3 25 16 14 7 13 19 4 24M59 111l7 19M90 111l-7 19"/>
+<!-- piping bag --> <path d="M238 52c20 3 31 14 38 34l-20 18-31-27zM251 95l9 14 7-18"/>
+<!-- cake slice --> <path d="M259 214l56-25 18 31-56 24zM259 214v23l18 15v-8M277 244l56-24v21l-56 24v-21zM272 201c-2-12 8-18 17-13 6-12 19-10 22-1M291 229l4 15"/>
+<!-- whisk --> <path d="M84 209l-15 31M72 239c-12-1-23-13-15-28 7-14 20-10 23-2 7-10 24-7 28 7 3 16-12 24-27 22M69 239l-7 15"/>
+<!-- mini hearts and sparkle --> <path d="M174 137l2-8 2 8 8 2-8 2-2 8-2-8-8-2zM358 77l1-6 2 6 6 2-6 2-2 6-1-6-6-2zM153 268c-16-11-16-25-6-26 6-1 9 5 9 5s6-8 13-3c10 8 1 19-16 24z"/>
+</g></svg>
