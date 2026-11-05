@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración | Gardenias Pastelería</title>
+</head>
+
+<body>
+
+  <h1>Contacto directo con administración</h1>
+
+  <p>
+    ¿Tienes alguna solicitud, consulta o documento que quieras
+    compartir? Comunícate directamente con nuestro equipo
+    administrativo a través de este formulario.
+  </p>
+
+  <form id="formularioCorreo" enctype="multipart/form-data">
+
+    <label for="nombre">Nombre completo:</label>
+    <input
+      type="text"
+      id="nombre"
+      name="nombre"
+      required
+    >
+
+    <label for="email">Correo electrónico:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+    >
+
+    <label for="asunto">Asunto:</label>
+    <input
+      type="text"
+      id="asunto"
+      name="asunto"
+      required
+    >
+
+    <label for="mensaje">Mensaje:</label>
+    <textarea
+      id="mensaje"
+      name="mensaje"
+      rows="5"
+      required
+    ></textarea>
+
+    <label for="archivo">Adjuntar documento o imagen:</label>
+    <input
+      type="file"
+      id="archivo"
+      name="archivo"
+      accept=".pdf,.jpg,.jpeg,.png"
+    >
+
+    <small>
+      Formatos permitidos: PDF, JPG y PNG.
+      Tamaño máximo: 3 MB.
+    </small>
+
+    <button type="submit">
+      Enviar solicitud
+    </button>
+
+  </form>
+
+  <p id="resultado" role="status" aria-live="polite"></p>
+
+  <script>
+    document.getElementById("formularioCorreo")
+      .addEventListener("submit", async function(evento) {
+
+        evento.preventDefault();
+
+        const resultado = document.getElementById("resultado");
+        const boton = this.querySelector('button[type="submit"]');
+        const archivo = document.getElementById("archivo").files[0];
+
+        if (archivo && archivo.size > 3 * 1024 * 1024) {
+          resultado.textContent = "El archivo no puede superar los 3 MB.";
+          return;
+        }
+
+        resultado.textContent = "Enviando solicitud...";
+        boton.disabled = true;
+
+        try {
+          const datos = new FormData(this);
+
+          const respuesta = await fetch("/api/enviar", {
+            method: "POST",
+            body: datos
+          });
+
+          const contenido = await respuesta.json();
+
+          if (!respuesta.ok) {
+            throw new Error(
+              contenido.error || "No se pudo enviar la solicitud."
+            );
+          }
+
+          resultado.textContent =
+            "¡Tu solicitud fue enviada correctamente!";
+
+          this.reset();
+
+        } catch (error) {
+          resultado.textContent = error.message;
+
+        } finally {
+          boton.disabled = false;
+        }
+
+      });
+  </script>
+
+</body>
+</html>
