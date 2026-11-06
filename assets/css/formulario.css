@@ -1,0 +1,146 @@
+
+/* FORMULARIO ADMINISTRATIVO - GARDENIAS */
+
+body {
+  background: #fdfbf7;
+  color: #34372b;
+}
+
+body > h1,
+body > p {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body > h1 {
+  margin-top: 65px;
+  margin-bottom: 15px;
+  font-size: 32px;
+  color: #626543;
+}
+
+body > p {
+  margin-bottom: 25px;
+  line-height: 1.7;
+}
+
+/* Contenedor del formulario */
+
+#formularioCorreo {
+  max-width: 820px;
+  margin: 30px auto 60px;
+  padding: 30px;
+  background: #ffffff;
+  border: 1px solid #e6e2da;
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.04);
+}
+
+/* Etiquetas */
+
+#formularioCorreo label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #626543;
+}
+
+/* Campos */
+
+#formularioCorreo input,
+#formularioCorreo textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 15px;
+  font: inherit;
+  font-size: 15px;
+  border: 1px solid #deded8;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #34372b;
+}
+
+#formularioCorreo textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+#formularioCorreo input:focus,
+#formularioCorreo textarea:focus {
+  outline: 2px solid #626543;
+  outline-offset: 2px;
+}
+
+/* Archivos */
+
+#formularioCorreo input[type="file"] {
+  padding: 14px;
+  margin-bottom: 8px;
+}
+
+#formularioCorreo small {
+  display: block;
+  margin-bottom: 25px;
+  color: #77776f;
+  font-size: 13px;
+}
+
+/* Botón */
+
+#formularioCorreo button {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 10px;
+  background: #626543;
+  color: white;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#formularioCorreo button:hover {
+  background: #4d5035;
+}
+
+#formularioCorreo button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mensaje de resultado */
+
+#resultado {
+  max-width: 820px;
+  margin: 0 auto 35px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Adaptación a celulares */
+
+@media (max-width: 600px) {
+  body > h1,
+  body > p,
+  #resultado {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  body > h1 {
+    margin-top: 35px;
+    font-size: 26px;
+  }
+
+  #formularioCorreo {
+    margin: 20px;
+    padding: 22px;
+  }
+}
