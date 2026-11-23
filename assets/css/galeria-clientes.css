@@ -1,0 +1,151 @@
+/* Gardenias — Galería de momentos reales, solo página Nosotros */
+.gd-momentos {
+  padding: clamp(65px, 8vw, 120px) 0;
+  background: linear-gradient(180deg, #fffaf6 0%, #f7eee9 100%);
+}
+.gd-momentos .gd-momentos-inner {
+  width: min(1320px, calc(100% - 40px));
+  margin: 0 auto;
+}
+.gd-momentos-heading {
+  max-width: 950px;
+  margin: 0 auto clamp(28px, 4vw, 50px);
+  text-align: center;
+}
+.gd-momentos-eyebrow {
+  display: block;
+  color: #626543;
+  font: 700 13px/1.5 Montserrat, sans-serif;
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+  margin-bottom: 17px;
+}
+.gd-momentos-heading h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 400;
+  line-height: 1.13;
+  letter-spacing: -0.035em;
+  color: #30392b;
+  margin: 0 0 22px;
+}
+.gd-momentos-heading h2 em {color: #626543;}
+.gd-momentos-heading p {
+  margin: 0 auto;
+  max-width: 750px;
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.75;
+  color: #6e705e;
+}
+.gd-momentos-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(12px, 1.6vw, 23px);
+}
+.gd-momentos-card {
+  position: relative;
+  grid-column: span 2;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(98, 101, 67, 0.33);
+  padding: 6px;
+  border-radius: 26px;
+  background: #fffdf9;
+  box-shadow: 0 12px 30px rgba(68, 52, 38, 0.11);
+  overflow: hidden;
+  cursor: zoom-in;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  appearance: none;
+  display: block;
+}
+.gd-momentos-card:nth-child(4),
+.gd-momentos-card:nth-child(5) { grid-column: span 3; aspect-ratio: 5 / 3.7; }
+.gd-momentos-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 20px;
+  transition: transform .5s ease;
+}
+.gd-momentos-card:nth-child(3) img {object-position: center center;}
+.gd-momentos-card::after {
+  content: 'Ver fotografía';
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  border-radius: 100px;
+  background: rgba(255, 250, 247, .94);
+  color: #4f5439;
+  font: 700 12px/1.2 Montserrat, sans-serif;
+  padding: 10px 13px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .25s ease, transform .25s ease;
+}
+@media (hover:hover) {
+  .gd-momentos-card:hover {
+    transform: translateY(-5px);
+    border-color: #626543;
+    box-shadow: 0 20px 42px rgba(68, 52, 38, 0.2);
+  }
+  .gd-momentos-card:hover img {transform: scale(1.035);}
+  .gd-momentos-card:hover::after {opacity: 1;transform: none;}
+}
+.gd-momentos-card:focus-visible {outline: 3px solid #626543;outline-offset: 3px;}
+.gd-momentos-foot {
+  margin-top: 35px;
+  text-align: center;
+  font: 600 14px/1.6 Montserrat, sans-serif;
+  color: #787b64;
+}
+/* Lightbox */
+.gd-momentos-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 25px;
+  border: none;
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  background: rgba(24, 23, 20, 0.9);
+  align-items: center;
+  justify-content: center;
+}
+.gd-momentos-dialog[open] {display: flex;}
+.gd-momentos-dialog img {display: block; max-width: min(100%, 1100px);max-height: 90vh;object-fit: contain;border-radius: 10px;}
+.gd-momentos-close {
+  position: fixed;
+  right: 24px;
+  top: 18px;
+  background: #fffaf7;
+  color: #30392b;
+  border: 0;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 26px;
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .gd-momentos-grid {grid-template-columns: repeat(2,minmax(0,1fr));}
+  .gd-momentos-card, .gd-momentos-card:nth-child(4), .gd-momentos-card:nth-child(5) {
+    grid-column: span 1;
+    aspect-ratio: 4/5;
+  }
+  .gd-momentos-card:nth-child(5) {grid-column: span 2;aspect-ratio: 16/9;}
+}
+@media (max-width: 540px) {
+  .gd-momentos .gd-momentos-inner {width: min(100% - 24px, 430px);}
+  .gd-momentos-grid {gap: 10px;}
+  .gd-momentos-card {padding: 4px;border-radius: 15px;}
+  .gd-momentos-card img {border-radius: 11px;}
+  .gd-momentos-card::after {display:none;}
+  .gd-momentos-card:nth-child(5) {aspect-ratio: 4/3;}
+}
+@media (prefers-reduced-motion: reduce) {
+  .gd-momentos-card, .gd-momentos-card img, .gd-momentos-card::after {transition:none;}
+}
